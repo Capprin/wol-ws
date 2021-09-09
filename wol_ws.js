@@ -8,8 +8,8 @@ const wol = require('wake_on_lan');
 const config = require('./config.json')
 
 app.get('/', (req, res) => {
-    wol.wake(config.address);
-    console.log(`sent magic packet for ${config.address}`);
+    wol.wake(config.mac, config.address);
+    console.log(`sent magic packet for ${config.mac}`);
     res.end('Success');
 });
 
